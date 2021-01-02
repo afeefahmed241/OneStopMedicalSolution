@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.244"
-        app:srcCompat="@drawable/pg_call" />
+        app:srcCompat="@drawable/ic_finalcall" />
 
     <TextView
         android:id="@+id/textView"
@@ -32,17 +32,17 @@
         app:layout_constraintVertical_bias="0.021" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="187dp"
-        android:layout_height="67dp"
+        android:id="@+id/tvCall"
+        android:layout_width="379dp"
+        android:layout_height="116dp"
+        android:clickable="true"
         android:gravity="center"
-        android:text="Audio Call"
+        android:text="Call"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintVertical_bias="0.575" />
 </androidx.constraintlayout.widget.ConstraintLayout>
