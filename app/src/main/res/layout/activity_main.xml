@@ -18,14 +18,14 @@
         app:srcCompat="@drawable/pg_login1" />
 
     <EditText
-        android:id="@+id/edtTxtUserName"
+        android:id="@+id/edtEmail"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:layout_marginTop="44dp"
+        android:backgroundTint="@android:color/white"
         android:ems="10"
         android:gravity="center"
-        android:hint="User Name"
-        android:backgroundTint="@android:color/white"
+        android:hint="Email ID"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.516" />
 
     <EditText
-        android:id="@+id/edtTxtPassword"
+        android:id="@+id/edtPass"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtUserName"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
         app:layout_constraintVertical_bias="0.061" />
 
     <TextView

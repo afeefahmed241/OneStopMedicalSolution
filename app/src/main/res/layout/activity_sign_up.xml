@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/ic_signup__1_" />
 
     <EditText
-        android:id="@+id/edtTxtSignConPass"
+        android:id="@+id/edtConPassSignUp"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:layout_marginBottom="156dp"
@@ -32,11 +32,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtSignPass"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassSignUp"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/edtTxtSignPass"
+        android:id="@+id/edtPassSignUp"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:layout_marginBottom="188dp"
@@ -51,11 +51,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtEmailAdd"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailSignUp"
         app:layout_constraintVertical_bias="0.061" />
 
     <EditText
-        android:id="@+id/edtTxtUserNameSgn"
+        android:id="@+id/edtUserName"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:layout_marginTop="44dp"
@@ -74,7 +74,7 @@
         app:layout_constraintVertical_bias="0.503" />
 
     <EditText
-        android:id="@+id/edtTxtEmailAdd"
+        android:id="@+id/edtEmailSignUp"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:backgroundTint="@android:color/white"
@@ -88,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtUserNameSgn"
+        app:layout_constraintTop_toBottomOf="@+id/edtUserName"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -104,7 +104,7 @@
         app:layout_constraintVertical_bias="0.948" />
 
     <EditText
-        android:id="@+id/editSignDoB"
+        android:id="@+id/edtDobSignUp"
         android:layout_width="308dp"
         android:layout_height="41dp"
         android:backgroundTint="@android:color/white"
@@ -118,6 +118,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTxtSignConPass"
+        app:layout_constraintTop_toBottomOf="@+id/edtConPassSignUp"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
