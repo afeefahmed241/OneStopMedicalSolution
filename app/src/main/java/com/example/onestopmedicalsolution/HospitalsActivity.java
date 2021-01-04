@@ -4,11 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -18,6 +27,9 @@ public class HospitalsActivity extends AppCompatActivity implements HospitalAdap
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
+
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     ArrayList<Hospital> hospitals;
 
@@ -32,27 +44,56 @@ public class HospitalsActivity extends AppCompatActivity implements HospitalAdap
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+
+        ProgressDialog dialog = ProgressDialog.show(this, "Loading", "Please wait ...", true);
+
         hospitals = new ArrayList<Hospital>();
 
-        hospitals.add(new Hospital("Kurmitola","0171329847","231"));
-        hospitals.add(new Hospital("DMC","0171329847","241"));
-        hospitals.add(new Hospital("CMH","0171329847","250"));
-        hospitals.add(new Hospital("SJDF","0171329847","221"));
-        hospitals.add(new Hospital("Kurmitola","0171329847","231"));
-        hospitals.add(new Hospital("DMC","0171329847","241"));
-        hospitals.add(new Hospital("CMH","0171329847","250"));
-        hospitals.add(new Hospital("SJDF","0171329847","221"));
-        hospitals.add(new Hospital("Kurmitola","0171329847","231"));
-        hospitals.add(new Hospital("DMC","0171329847","241"));
-        hospitals.add(new Hospital("CMH","0171329847","250"));
-        hospitals.add(new Hospital("SJDF","0171329847","221"));
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Hospitals");
+
+        myAdapter = new HospitalAdapter(this,hospitals);
+        recyclerView.setAdapter(myAdapter);
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+
+                hospitals.clear();
+
+                for(DataSnapshot snapshot : dataSnapshot.getChildren())
+                {
+                    Hospital value = snapshot.getValue(Hospital.class);
+                    hospitals.add(value);
+
+                }
+
+
+                myAdapter.notifyDataSetChanged();
+
+
+                //Log.d(TAG, "Value is: " + value);
+                dialog.dismiss();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+               // Log.w(TAG, "Failed to read value.", error.toException());
+                Toast.makeText(HospitalsActivity.this, error.toException().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
         // for updating the listView myAdapter.notifyDataSetChanged();
 
 
-        myAdapter = new HospitalAdapter(this,hospitals);
-        recyclerView.setAdapter(myAdapter);
+
     }
 
 
