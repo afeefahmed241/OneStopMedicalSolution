@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "Loading", "Please wait ...", true);
                 String email,pass;
 
                 email = edtEmail.getText().toString().trim();
@@ -65,10 +67,12 @@ public class MainActivity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 Toast.makeText(MainActivity.this, "Logged IN", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
                                 openManuActivity();
                             }
                             else
                             {
+                                dialog.dismiss();
                                 Toast.makeText(MainActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }

@@ -84,6 +84,7 @@ public class HospitalsActivity extends AppCompatActivity implements HospitalAdap
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
                // Log.w(TAG, "Failed to read value.", error.toException());
+                dialog.dismiss();
                 Toast.makeText(HospitalsActivity.this, error.toException().toString(), Toast.LENGTH_SHORT).show();
             }
         });
